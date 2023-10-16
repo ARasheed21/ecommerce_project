@@ -5,6 +5,7 @@ import 'package:first_project/Screens/offer_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/catogery_model.dart';
 import '../models/product_model.dart';
+import '../repository/product_repo.dart';
 import '../widgets/carousel_slider.dart';
 import '../widgets/catogery_listview.dart';
 import '../widgets/flash_sale_listview.dart';
@@ -208,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               //Flash Sale ListView
               FutureBuilder(
-                future: getProducts(),
+                future: ProductRepo().getProducts(),
                 builder: (context,snapshot){
                   if(snapshot.connectionState == ConnectionState.waiting){
                     return Center(child: CircularProgressIndicator(),);
@@ -276,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               //GridView Product
-              Container(
+              /*Container(
                 margin: EdgeInsets.symmetric(horizontal: 14, vertical: 14),
                 child: GridView.builder(
                   physics: NeverScrollableScrollPhysics(),
@@ -290,11 +291,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   itemBuilder: (context, i) {
                     return MainProductGridView(
-                      mainProductItem: mainProductList[i],
+                      productItem: mainProductList[i],
                     );
                   },
                 ),
-              ),
+              ),*/
             ],
           ),
         ),

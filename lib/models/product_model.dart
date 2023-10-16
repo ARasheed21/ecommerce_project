@@ -198,10 +198,3 @@ class ProductItemB {
   };
 }
 
-final dio = Dio();
-
-Future<ProductModelB> getProducts() async{
-  final response = await dio.get('https://student.valuxapps.com/api/products');
-  return ProductModelB.fromJson(response.data);
-
-}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../models/banner_model.dart';
+import '../repository/banner_repo.dart';
 
 class MyCarouselSlider extends StatefulWidget {
   const MyCarouselSlider({super.key});
@@ -17,11 +18,11 @@ class _MyCarouselSliderState extends State<MyCarouselSlider> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: getBanners(),
+      future: BannerRepo().getBanners(),
       builder: (context,snapshot){
-        // if(snapshot.connectionState == ConnectionState.waiting){
-        //   return Center(child: CircularProgressIndicator(),);
-        // }
+        if(snapshot.connectionState == ConnectionState.active){
+          return Center(child: CircularProgressIndicator(),);
+        }
         return Container(
           margin: EdgeInsets.symmetric(vertical: 5),
           child: Stack(

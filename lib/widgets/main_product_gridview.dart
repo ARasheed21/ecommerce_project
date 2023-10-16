@@ -3,8 +3,8 @@ import '../models/product_model.dart';
 
 class MainProductGridView extends StatelessWidget {
 
-  final ProductModel mainProductItem;
-  const MainProductGridView({super.key, required this.mainProductItem});
+  final ProductItemB productItem;
+  const MainProductGridView({super.key, required this.productItem});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,8 @@ class MainProductGridView extends StatelessWidget {
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children:[
-            Image.asset(
-              mainProductItem.image,
+            Image.network(
+              productItem.image,
               width: MediaQuery.of(context).size.width,
               height: 133,
             ),
@@ -33,7 +33,7 @@ class MainProductGridView extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              mainProductItem.name,
+              productItem.name,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 12,
@@ -43,7 +43,7 @@ class MainProductGridView extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              mainProductItem.price.toString(),
+              productItem.price.toString(),
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,

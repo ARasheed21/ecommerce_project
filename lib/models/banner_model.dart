@@ -52,14 +52,6 @@ class BannerItem {
   };
 }
 
-final dio = Dio();
-late BannerModel bannerModel;
 
-Future<BannerModel> getBanners() async{
-  final response = await dio.get('https://student.valuxapps.com/api/banners');
-  bannerModel = BannerModel.fromJson(response.data);
-  return bannerModel;
-
-}
 
 
