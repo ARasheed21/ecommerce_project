@@ -31,7 +31,10 @@ class CatogeryListView extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return CategoryProductScreen(id:snapshot.data!.data.categoryList[i].id);
+                        return CategoryProductScreen(
+                          id: snapshot.data!.data.categoryList[i].id,
+                          name: snapshot.data!.data.categoryList[i].name,
+                        );
                       },
                     ),
                   );
@@ -48,8 +51,8 @@ class CatogeryListView extends StatelessWidget {
                           radius: 38,
                           child: Image.network(
                             snapshot.data!.data.categoryList[i].image,
-                            height: 30,
-                            width: 30,
+                            height: 50,
+                            width: 50,
                           ),
                         ),
                       ),
